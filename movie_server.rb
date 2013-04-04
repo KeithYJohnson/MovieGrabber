@@ -1,25 +1,52 @@
 require 'sinatra'
 require 'pry'
+require 'rack-flash'
+require 'rubygems'
+require 'shotgun'
+
 require_relative 'movies'
 
+enable :sessions
+use Rack::Flash	
+
+# before '/' do
+
+# 	unless params[:password] == "coolbananas"
+# 		flash[:notice] = "Sorry, the password is wrong."
+# 		redirect '/login'
+# 	end
+# end
+
 get '/' do
-	erb :index
+
+	erb :login
+	
 end
+	# unless params[:password] == "coolbananas"
+	# 	redirect '/login'
+	# ene
+	
 
 get "/:name" do
-	
 	erb :movie
-
-	# erb :movie, :locals => {
- #  	:actors => @actors
- #  }
-
 end
 
+get '/login' do
+	erb :login
+end 
+
+
+
+post '/' do
+	if params[:password] == "coolbananas"
+		erb :index
+	else
+		redirect '/'
+	end
+end
 
 post '/film' do
-  # Search for a Movie
-  # HINT - what is in params ?
+
   newmovie = Movie.get_film_info(params[:name])
   
   @actors = newmovie.actors
@@ -29,8 +56,4 @@ post '/film' do
   }
 
 
- # @year="1975">
-  #redirect "/#{params[:name]}"
-
-  # Display the movie in the page
 end

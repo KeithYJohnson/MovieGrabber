@@ -1,4 +1,4 @@
-require 'httparty'
+    require 'httparty'
 require 'json'
 
 class Movie
@@ -22,5 +22,15 @@ class Movie
     m.poster_url = movie_info["Poster"]
     m
   end
+
+  def save
+    db = SQLite3::Database.new("movies.db")
+    sql = "insert into movies (title, year, rating, genre, director, actors, 
+      plot, poster) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+
+    db.execute(sql, title, year, rating, genre, director, actors.join(","), plot, poster_url)
+  end
+
+
 
 end
