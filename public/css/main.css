@@ -17,3 +17,18 @@ form {
 	text-align: center;
 
 }
+
+#title {
+	font-size: 30px;
+	text-align: center;
+	margin-top: 10px;
+
+}
+
+.info {
+	float:left;
+	width: 300px;
+	height: auto;
+	margin: 10px;
+	font-weight: bolder;
+}

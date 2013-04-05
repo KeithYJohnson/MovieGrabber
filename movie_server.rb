@@ -30,7 +30,7 @@ post '/' do
 	if params[:password] == "coolbananas"
 		erb :index
 	else
-		flash[:notice] = "Please find the correct password"
+
 		redirect '/'
 	end
 end

@@ -7,29 +7,31 @@
 
 	<body>
 
-		<div>
+		<div id="title">
+			<%=newmovie.title %>
+		</div>
 
-			<h1>Your movie's info is</h1>
+		<div class="info">
+			<img src=<%=newmovie.poster_url %> />
+		</div>
+
+		<div class="info">
 			
-			<ul> <strong>Principle Actors and Actresses</strong>
 				<% for i in newmovie.actors do %>
 					<li> <%= i %></li>
 				<% end %>
-			</ul>
 
 		</div>
 
-		<div>
+		<div class="info">
 			<%=newmovie.plot %>
 		</div>
 
-		<div>
+		<div class="info">
+			Director
+			<br/><br/>
 			<%=newmovie.director %>
 		</div>	
-
-		<div>
-			<img src=<%=newmovie.poster_url %> />
-		</div>
 
 	</body>
 
