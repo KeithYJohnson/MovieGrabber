@@ -3,6 +3,7 @@ require 'pry'
 require 'rack-flash'
 require 'rubygems'
 require 'shotgun'
+require 'sinatra/flash'
 
 require_relative 'movies'
 
@@ -11,7 +12,7 @@ use Rack::Flash
 
 
 get '/' do
-	erb :login	
+	erb :login, :layout => false
 end
 
 	
@@ -30,7 +31,7 @@ post '/' do
 	if params[:password] == "coolbananas"
 		erb :index
 	else
-
+		flash[:password] = "Please find the correct password"
 		redirect '/'
 	end
 end
