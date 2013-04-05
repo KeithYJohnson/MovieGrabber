@@ -31,7 +31,7 @@ post '/' do
 	if params[:password] == "coolbananas"
 		erb :index
 	else
-		flash[:password] = "Please find the correct password"
+		flash[:notice] = "Your bananas are too hot!!  Please follow the IMDB twitter account for the password to use this website"
 		redirect '/'
 	end
 end
