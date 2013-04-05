@@ -6,14 +6,31 @@
 	</head>
 
 	<body>
-		<h1>Your movie's info is</h1>
-		
-		<ul> <strong>Principle Actors and Actresses</strong>
-			<% for i in actors do %>
-				<li> <%= i %></li>
-			<% end %>
-		</ul>
-		
+
+		<div>
+
+			<h1>Your movie's info is</h1>
+			
+			<ul> <strong>Principle Actors and Actresses</strong>
+				<% for i in newmovie.actors do %>
+					<li> <%= i %></li>
+				<% end %>
+			</ul>
+
+		</div>
+
+		<div>
+			<%=newmovie.plot %>
+		</div>
+
+		<div>
+			<%=newmovie.director %>
+		</div>	
+
+		<div>
+			<%=newmovie.poster_url %>
+		</div>
+
 	</body>
 
 </html>
