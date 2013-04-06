@@ -1,7 +1,9 @@
-    require 'httparty'
+require 'httparty'
 require 'json'
+require 'sqlite3'
 
 class Movie
+
 
   # Add attr_accessors for the values you want to store...
   attr_accessor :title, :year, :rating, :genre, :director, :actors, :plot, :poster_url
@@ -22,9 +24,10 @@ class Movie
     m.poster_url = movie_info["Poster"]
     m
   end
-
   def save
+
     db = SQLite3::Database.new("movies.db")
+
     sql = "insert into movies (title, year, rating, genre, director, actors, 
       plot, poster) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
 
